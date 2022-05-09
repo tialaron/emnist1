@@ -7,14 +7,14 @@ st.set_page_config(layout="wide")
 st.header("Распознавание букв с помощью нейронной сети")
 
 with st.expander('Рассмотрим как выглядят буквы и цифры из базы'):
-    image = Image.open('H:\Pythonprojects\emniststream\\venv\\numbersletters.jpg')
+    image = Image.open('numbersletters.jpg')
     st.image(image)
 
-testovic = np.load('H:\Pythonprojects\emniststream\\venv\\test.npz')
+testovic = np.load('test.npz')
 X_test_ = testovic['x']
 x_test_2D = X_test_ / 255 # делим на 255, чтобы диапазон был от 0 до 1
 
-model_2d = load_model('H:\Pythonprojects\emniststream\\venv\model_emnist.h5')
+model_2d = load_model('model_emnist.h5')
 
 dictant1 = {0:'0' , 1:'1' , 2:'2' , 3:'3' , 4:'4' , 5:'5' , 6:'6' , 7:'7' , 8:'8' , 9:'9' , 10:'A' , 11:'B' ,
             12:'C' , 13:'D' , 14:'E' , 15:'F' , 16:'G' , 17:'H' , 18:'I' , 19:'i' , 20:'k' , 21:'l' , 22:'M' ,
@@ -47,7 +47,7 @@ def img_preprocess(img):
     # convert n save
     im = Image.fromarray(img_array1)
     im.save('your_file_image.png')
-    # image11 = Image.open('/sysroot/home/user/Загрузки/PyProject/mnist_streamlit/your_file_image.png')
+    # image11 = Image.open('your_file_image.png')
     image11 = Image.open('your_file_image.png')
     img11 = image11.resize((28, 28), Image.ANTIALIAS)
 
