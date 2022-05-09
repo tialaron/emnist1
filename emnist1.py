@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 st.header("Распознавание букв с помощью нейронной сети")
 
 with st.expander('Рассмотрим как выглядят буквы и цифры из базы'):
-    image = Image.open('/app/emnist3/numbersletters.jpg')
+    image = Image.open('numbersletters.jpg')
     st.image(image)
 
 testovic = np.load('test.npz')
